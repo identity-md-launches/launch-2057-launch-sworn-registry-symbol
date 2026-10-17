@@ -1,0 +1,27 @@
+{
+  "kind": "evm_contracts",
+  "contracts": [
+    {
+      "contract": "Renderer",
+      "constructorArgs": []
+    },
+    {
+      "contract": "Composer",
+      "constructorArgs": []
+    },
+    {
+      "contract": "Registry",
+      "constructorArgs": [
+        "0x0919ba50b206c3f31d516de818b1fbc7da21653d",
+        "0x2c3013c90a1bb65573aae9a7c64fafb82697e4e4",
+        "0x44a1cd38474fb1748400e7deb5f8d786cce3f89a",
+        "0xa43e6f75ee006411f79ac1c84120606c2330de82",
+        "0x5598aa9146215bc13eb26f2c692ad1461fd32982",
+        "$contract:Renderer",
+        "$contract:Composer",
+        "0x097A19e0f021BBA5072701132625ad2401043A2E"
+      ]
+    }
+  ],
+  "notes": "Sworn (SWORN) Sepolia rehearsal, chain 11155111: deploy only Renderer, Composer, then Registry with the approved eight dependencies. All three application contracts are ownerless; no owner arguments, initialization calls or deployment ETH are required. The nonzero Sepolia BurnExecutor V1 is the approved stand-in: previewBridge() reverts, so sponsored calls emit BurnSkipped(1) and refund this call's ETH; the burn rule is effectively off on Sepolia. Oracle evidence remains Ethereum mainnet (attestation chainId 1); consumer.chainId and the EIP-712 domain use the deployment chain. This manifest adds no application adaptations: executable source, constructors, libraries and build settings remain the frozen candidate. Accepted design decisions and the documented V2 preview-gas erratum are preserved. A mandatory check or gas-preflight failure must park deployment; it does not authorize changing the frozen bytes."
+}
